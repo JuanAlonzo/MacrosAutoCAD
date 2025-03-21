@@ -1,7 +1,8 @@
 ; Esta macro permite mover un objeto con el cursor
 ; Selecciona un objeto y mueve el objeto a la posición del cursor
+; Usa MC para usar la MACRO 
 
-(defun c:MoverCursor ( / ent ins)
+(defun c:MC ( / ent ins)
   (setq ent (car (entsel "\nSelecciona el objeto a mover: "))) 
   ; Selecciona el objeto
   (if ent

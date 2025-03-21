@@ -1,4 +1,6 @@
-(defun c:MultilineaSuma ()
+; Usa MLSum para usar esta MACRO
+
+(defun c:MLSum ()
   (setq ss (ssget '((0 . "TEXT,MTEXT"))))
   
   (if ss

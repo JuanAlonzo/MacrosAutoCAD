@@ -1,6 +1,7 @@
 ; Esta MACRO permite copiar un objeto con el cursor y pegarlo en la posición del cursor
+; Usa CC para usar la MACRO
 
-(defun c:CopiarCursor ( / ent ins)
+(defun c:CC ( / ent ins)
   (setq ent (car (entsel "\nSelecciona el objeto a copiar: "))) 
   ; Selecciona el objeto
   (if ent

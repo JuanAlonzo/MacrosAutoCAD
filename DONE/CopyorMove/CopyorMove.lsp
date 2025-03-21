@@ -1,4 +1,6 @@
-(defun c:CopyOrMove ( / ent ins opcion)
+; Usa COM para usar la MACRO
+
+(defun c:COM ( / ent ins opcion)
   (setq opcion (getstring "\n¿Quieres Mover(1) o Copiar(2)? [M/C]: ")) 
   ; Preguntar opción
 
