@@ -1,0 +1,23 @@
+(defun c:ExtenderTextos (/ ss ancho ent datos tipo)
+  (setq ss (ssget '((0 . "TEXT,MTEXT"))))  
+  ; Selecciona solo textos
+  (if ss
+      (progn
+        (setq ancho (getreal "\nIngrese el ancho mínimo para los textos: "))
+        (repeat (sslength ss)
+          (setq ent (ssname ss 0))
+          (setq datos (entget ent))
+          (setq tipo (cdr (assoc 0 datos)))
+          (if (= tipo "TEXT")
+              (setq datos (subst (cons 41 ancho) (assoc 41 datos) datos))
+              (setq datos (subst (cons 42 ancho) (assoc 42 datos) datos))
+          )
+          (entmod datos)
+          (ssdel ent ss)
+        )
+        (princ "\nTextos ajustados correctamente.")
+      )
+      (princ "\nNo hay textos seleccionados.")
+  )
+  (princ)
+)
